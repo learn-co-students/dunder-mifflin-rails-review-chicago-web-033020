@@ -1,0 +1,7 @@
+<h1>All dogs</h1>
+
+<% @dogs.each do |dog| %>
+  <p><%= link_to "#{dog[0].name} belongs to #{pluralize(dog[1], "employee")}", dog[0] %><p><br>
+<% end %>
+
+<p><%= link_to "See all employees", employees_path %></p>
