@@ -1,5 +1,6 @@
 class Employee < ActiveRecord::Base
     belongs_to :dog
+    validates_uniqueness_of :title, :alias
 
     def dog_name=(name)
         self.dog = Dog.find_by(name: name)

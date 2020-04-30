@@ -12,8 +12,13 @@ class EmployeesController < ApplicationController
     end
 
     def create
-        @employee = Employee.create(employee_params)
-        redirect_to employee_path(@employee)
+        @employee = Employee.new(employee_params)
+        if @employee.valid? 
+            @employee.save
+            redirect_to employee_path(@employee)
+        else
+            redirect_to new_employee_path
+        end
     end
 
     def edit
@@ -22,8 +27,12 @@ class EmployeesController < ApplicationController
 
     def update
         @employee = Employee.find(params[:id])
-        @employee.update(employee_params)
-        redirect_to employee_path(@employee)
+        if @employee.valid?
+            @employee.update(employee_params)
+            redirect_to employee_path(@employee)
+        else
+            redirect_to edit_employee_path
+        end
     end
 
     private 
