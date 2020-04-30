@@ -1,0 +1,13 @@
+<ul>
+<% @employees.each do |employee| %>
+    <p><%if employee.alias == "none"%>
+        <%=link_to "#{employee.first_name} #{employee.last_name}", employee %><br><br>
+    <% else %>
+        <%= link_to "#{employee.first_name} '#{employee.alias}' #{employee.last_name}", employee_path(employee) %><br><br>
+    <% end %>
+    <%=image_tag (employee.img_url) %><br><br>
+    Title: <br>
+    <%= employee.title %><br>
+    Office: <br>
+    <%= employee.office %></p>
+<% end %>
