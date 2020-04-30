@@ -13,7 +13,7 @@ class EmployeesController < ApplicationController
     if @employee.save
       redirect_to employee_path(@employee)
     else
-      redirect_to new_employee_path(@employee)
+      render "new"
     end
   end
 
