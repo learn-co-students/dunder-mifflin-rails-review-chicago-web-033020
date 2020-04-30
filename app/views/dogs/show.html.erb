@@ -1,0 +1,8 @@
+<%= "name: #{@dog.name}" %><br>
+<%= "breed: #{@dog.breed}" %><br>
+<%= "age: #{@dog.age}" %><br>
+<ul>
+<% @dog.employees.each do |employee| %>
+<li> <%= link_to employee.first_name, employee_path(employee) %>
+<% end %>
+</ul >
