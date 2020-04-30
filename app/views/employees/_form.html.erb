@@ -1,0 +1,33 @@
+<%= form_for employee do |f| %>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %><br>
+    <%= f.label :last_name %> 
+    <%= f.text_field :last_name %><br>
+    <%= f.label :alias %>
+    <%= f.text_field :alias %><br>
+    <%= f.label :title %>
+    <%= f.text_field :title %><br>
+    <%= f.label :office %>
+    <%= f.text_field :office %><br>
+    <%= f.label :img_url, 'Photo' %>
+    <%= f.text_field :img_url %><br>
+    
+    <!-- if one was to upload an image, this is what one would use here: <%= f.file_field :img_url %> -->
+
+
+    <%= f.label :dog_id, 'Dog' %>
+    <%= f.collection_select(:dog_id, Dog.all, :id, :name) %>
+
+    <%= f.submit %>
+<% end %>
+<!--
+t.string :first_name
+t.string :last_name
+t.string :alias
+t.string :title
+t.string :office
+t.string :img_url
+t.references :dog
+-->
+
+
